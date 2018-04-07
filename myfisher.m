@@ -34,7 +34,6 @@ function Pout=myfisher(x,varargin)
 % http://www.mathworks.com/matlabcentral/fileexchange/26883
 
 
-%Input error Handling
 %Input error handling
 p = inputParser;
 addRequired(p,'x',@(x) validateattributes(x,{'numeric'},{'real','finite','integer','nonnegative','nonnan','2d'}));
