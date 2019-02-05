@@ -47,45 +47,17 @@ clear p
 [rows,columns]=size(x);
 if rows==2 
     if columns==2
-        if exist('myfisher22.m','file')==0
-            filename=unzip('https://it.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/15434/versions/19/download/zip','prova');
-            Index = contains(filename,'myfisher22.m');
-            current=cd;
-            copyfile(filename{Index},current)
-            rmdir('prova','s')
-            clear filename Index current
-        end
+        assert(exist('myfisher22.m','file')~=0,'You must download myfisher22.m function from https://it.mathworks.com/matlabcentral/fileexchange/15434-myfisher22')
         myfisher22(x)
     elseif columns==3
-        if exist('myfisher23.m','file')==0
-            filename=unzip('https://it.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/15399/versions/8/download/zip','prova');
-            Index = contains(filename,'myfisher23.m');
-            current=cd;
-            copyfile(filename{Index},current)
-            rmdir('prova','s')
-            clear filename Index current
-        end
+        assert(exist('myfisher23.m','file')~=0,'You must download myfisher23.m function from https://it.mathworks.com/matlabcentral/fileexchange/15399-myfisher23')
         myfisher23(x)
     elseif columns==4
-        if exist('myfisher24.m','file')==0
-            filename=unzip('https://it.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/19842/versions/7/download/zip','prova');
-            Index = contains(filename,'myfisher24.m');
-            current=cd;
-            copyfile(filename{Index},current)
-            rmdir('prova','s')
-            clear filename Index current
-        end
+        assert(exist('myfisher24.m','file')~=0,'You must download myfisher24.m function from https://it.mathworks.com/matlabcentral/fileexchange/19842-myfisher24')        
         myfisher24(x)
     end
 elseif rows==3 && columns==3
-    if exist('myfisher33.m','file')==0
-        filename=unzip('https://it.mathworks.com/matlabcentral/mlc-downloads/downloads/submissions/15482/versions/8/download/zip','prova');
-        Index = contains(filename,'myfisher33.m');
-        current=cd;
-        copyfile(filename{Index},current)
-        rmdir('prova','s')
-        clear filename Index current
-    end
+    assert(exist('myfisher33.m','file')~=0,'You must download myfisher33.m function from https://it.mathworks.com/matlabcentral/fileexchange/15482-myfisher33')
     myfisher33(x)
 else
     clear rows columns
