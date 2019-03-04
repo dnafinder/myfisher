@@ -21,6 +21,11 @@ function Pout=myfisher(x,varargin)
 %      
 %     Inputs:
 %           X - data matrix 
+%           delta - If Monte Carlo simulation is needed, the simulation
+%           size to ensure that p-value is within delta units of the true
+%           one with (1-alpha)*100% confidence. Psycometrika 1979; Vol.44:75-83.
+%           By default delta=0.01;
+%           alpha - Significance level. By default alpha=0.05;
 %     Outputs:
 %           P - 2-tailed p-value
 %
@@ -38,7 +43,7 @@ function Pout=myfisher(x,varargin)
 p = inputParser;
 addRequired(p,'x',@(x) validateattributes(x,{'numeric'},{'real','finite','integer','nonnegative','nonnan','2d'}));
 addOptional(p,'delta',0.01, @(x) validateattributes(x,{'numeric'},{'scalar','real','finite','nonnan','>',0,'<',1}));
-addOptional(p,'alpha',0.01, @(x) validateattributes(x,{'numeric'},{'scalar','real','finite','nonnan','>',0,'<',1}));
+addOptional(p,'alpha',0.05, @(x) validateattributes(x,{'numeric'},{'scalar','real','finite','nonnan','>',0,'<',1}));
 parse(p,x,varargin{:});
 alpha=p.Results.alpha; delta=p.Results.delta;
 clear p
@@ -48,17 +53,17 @@ clear p
 if rows==2 
     if columns==2
         assert(exist('myfisher22.m','file')~=0,'You must download myfisher22.m function from https://it.mathworks.com/matlabcentral/fileexchange/15434-myfisher22')
-        myfisher22(x)
+        myfisher22(x,alpha)
     elseif columns==3
         assert(exist('myfisher23.m','file')~=0,'You must download myfisher23.m function from https://it.mathworks.com/matlabcentral/fileexchange/15399-myfisher23')
-        myfisher23(x)
+        myfisher23(x,alpha)
     elseif columns==4
         assert(exist('myfisher24.m','file')~=0,'You must download myfisher24.m function from https://it.mathworks.com/matlabcentral/fileexchange/19842-myfisher24')        
-        myfisher24(x)
+        myfisher24(x,alpha)
     end
 elseif rows==3 && columns==3
     assert(exist('myfisher33.m','file')~=0,'You must download myfisher33.m function from https://it.mathworks.com/matlabcentral/fileexchange/15482-myfisher33')
-    myfisher33(x)
+    myfisher33(x,alpha)
 else
     clear rows columns
 
