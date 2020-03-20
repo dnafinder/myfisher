@@ -56,14 +56,14 @@ if rows==2
         myfisher22(x,alpha)
     elseif columns==3
         assert(exist('myfisher23.m','file')~=0,'You must download myfisher23.m function from https://it.mathworks.com/matlabcentral/fileexchange/15399-myfisher23')
-        myfisher23(x,alpha)
+        myfisher23(x)
     elseif columns==4
         assert(exist('myfisher24.m','file')~=0,'You must download myfisher24.m function from https://it.mathworks.com/matlabcentral/fileexchange/19842-myfisher24')        
-        myfisher24(x,alpha)
+        myfisher24(x)
     end
 elseif rows==3 && columns==3
     assert(exist('myfisher33.m','file')~=0,'You must download myfisher33.m function from https://it.mathworks.com/matlabcentral/fileexchange/15482-myfisher33')
-    myfisher33(x,alpha)
+    myfisher33(x)
 else
     clear rows columns
 
