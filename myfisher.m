@@ -50,17 +50,15 @@ clear p
 
 %chech if you can use a previously written function of mine
 [rows,columns]=size(x);
-if rows==2 
-    if columns==2
-        assert(exist('myfisher22.m','file')~=0,'You must download myfisher22.m function from https://it.mathworks.com/matlabcentral/fileexchange/15434-myfisher22')
-        myfisher22(x,alpha)
-    elseif columns==3
-        assert(exist('myfisher23.m','file')~=0,'You must download myfisher23.m function from https://it.mathworks.com/matlabcentral/fileexchange/15399-myfisher23')
-        myfisher23(x)
-    elseif columns==4
-        assert(exist('myfisher24.m','file')~=0,'You must download myfisher24.m function from https://it.mathworks.com/matlabcentral/fileexchange/19842-myfisher24')        
-        myfisher24(x)
-    end
+if rows==2 && columns==2
+    assert(exist('myfisher22.m','file')~=0,'You must download myfisher22.m function from https://it.mathworks.com/matlabcentral/fileexchange/15434-myfisher22')
+    myfisher22(x,alpha)
+elseif rows==2 && columns==3
+    assert(exist('myfisher23.m','file')~=0,'You must download myfisher23.m function from https://it.mathworks.com/matlabcentral/fileexchange/15399-myfisher23')
+    myfisher23(x)
+elseif rows==2 && columns==4
+    assert(exist('myfisher24.m','file')~=0,'You must download myfisher24.m function from https://it.mathworks.com/matlabcentral/fileexchange/19842-myfisher24')
+    myfisher24(x)
 elseif rows==3 && columns==3
     assert(exist('myfisher33.m','file')~=0,'You must download myfisher33.m function from https://it.mathworks.com/matlabcentral/fileexchange/15482-myfisher33')
     myfisher33(x)
